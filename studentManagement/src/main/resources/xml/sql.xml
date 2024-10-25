@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- 할 일 전체 조회 -->
+	<entry key="studentListFullView">
+		SELECT
+			STD_NO,
+			STD_NAME,
+			STD_AGE,
+			STD_GENDER,
+			STD_SCORE
+		FROM TB_STUDENT
+		WHERE STD_NO > 0
+		ORDER BY STD_NO ASC
+	</entry>
+
+	<!-- 학생 상세 조회 -->
+	<entry key="studentDetailView">
+		SELECT STD_NO,
+			STD_NAME,
+			STD_AGE,
+			STD_GENDER,
+			STD_SCORE
+		FROM TB_STUDENT
+		WHERE STD_NO = ?
+	</entry>
+
+	<!-- 학생 수정 -->
+	<entry key="studentUpdate">
+	UPDATE TB_STUDENT
+	SET STD_NAME = ?,
+		STD_AGE = ?,
+		STD_SCORE = ?
+		WHERE STD_NO = ?
+	</entry>
+
+	<!--  학생 삭제 -->
+	<entry key="studentDelete">
+		DELETE FROM TB_STUDENT
+		WHERE STD_NO = ?
+	</entry>
+	
+	<!-- 학생 추가 -->
+	
+	<entry key="studentAdd">
+		INSERT INTO TB_STUDENT
+		VALUES(SEQ_STUDENT_NO.NEXTVAL, ? , ? , ? , ?)
+	</entry>
+
+</properties>
